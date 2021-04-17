@@ -4,7 +4,7 @@ from flask import Flask, request, render_template
 import pickle
 
 app = Flask(__name__)
-Diabetes_detector_model = pickle.load(open('diabetes.pkl', 'rb'))
+model = pickle.load(open('diabetes.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -17,8 +17,8 @@ def predict():
     
     features_name = [ "num_preg","glucose_conc","diastolic_bp","thickness","insulin","bmi","diab_pred","age","skin"]
     
-    data= pd.DataFrame(features_value, columns=features_name)
-    output = Diabetes_detector_model.predict(data)
+    df= pd.DataFrame(features_value, columns=features_name)
+    output = model.predict(df)
         
     if output == 1:
         res_val = "** Diabatic Patient and Please Consult to the Doctor**"
