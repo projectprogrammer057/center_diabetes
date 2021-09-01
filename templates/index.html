@@ -418,17 +418,19 @@ Details about All Parameters of the dataset And its Range as per pathology </h5>
 </b></h2>
 <div class="container">
             <form action="{{ url_for('predict')}}" method="POST" action="/">
-<input type="text" name="age" placeholder="Your Age(Years)" style="border:2px black solid; " required="required" />
+		     <input type="text" name="num_preg" placeholder="Number of  Pregnency" style="border:2px black solid;" required="required" />
+	 <input type="text" name="glucose_conc" placeholder="Gulucose Concentration" style="border:2px black solid; " required="required" />
+		  <input type="text" name="diastolic_bp" placeholder="Your Blood Pressure" style="border:2px black solid; " required="required" />    
         <input type="text" name="bmi" placeholder="Your BMI" style="border:2px black solid; " required="required" />
 		<input type="text" name="diab_pred" placeholder="Diabetic in Family history" style="border:2px black solid; " required="required" />
         <input type="text" name="insulin" placeholder="Serum Insulin" style="border:2px black solid; " required="required" />
-         <input type="text" name="diastolic_bp" placeholder="Your Blood Pressure" style="border:2px black solid; " required="required" />
-		 <input type="text" name="glucose_conc" placeholder="Gulucose Concentration" style="border:2px black solid; " required="required" />
+       
+	
 		 <br>
-		 
+		 <input type="text" name="age" placeholder="Your Age(Years)" style="border:2px black solid; " required="required" />
 		 
 		 <input type="text" name="skin" placeholder="Triceps Skin Thickness" style="border:2px black solid;" required="required" />
-		 <input type="text" name="num_preg" placeholder="Number of  Pregnency" style="border:2px black solid;" required="required" />
+		
 		<br>
 		<br>
                 <button  id="tech">Predict  Disorder</button>
