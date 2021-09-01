@@ -21,9 +21,9 @@ def predict():
     output = model.predict(df)
         
     if output == 1:
-        res_val = "** Diabatic Patient and Please Consult to the Doctor**"
+        res_val = "**Diabaties,Please Consult to the Doctor as soon as possible for taking proper treatment**"
     else:
-        res_val = " Patient has no Diabaties and Enjoy your life"
+        res_val = "no Diabaties and Enjoy your life.Please maintain your healthy daily life routine"
         
 
     return render_template('index.html', prediction_text='Patient has {}'.format(res_val))
