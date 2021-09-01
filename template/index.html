@@ -1,115 +1,711 @@
-<!-- This is GUI for Diabetes Detection Application Using Machine Learning Classifer -->
+<!doctype html>
+<html lang="en">
 
-<!DOCTYPE html>
-<html >
 <head>
-  <meta charset="UTF-8">
-  <title>DIABETES PROBLEM SOLVED BY KALAM SARDAR</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <style>
-    /* CSS code for button */
-    body{
-     background-image: url('static\images\diab2.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap" rel="stylesheet">
 
-    /* CSS code for button */
-    .button_css {
-    color: #494949 !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #ffffff;
-    padding: 20px;
-    border: 4px solid #494949 !important;
-    display: inline-block;
-    transition: all 0.4s ease 0s;
-    }
-    
-    .button_css:hover {
-    color: #ffffff !important;
-    background: green;
-    border-color: #f6b93b !important;
-    transition: all 0.4s ease 0s;
-    }
-	
-	span{
-	color:red;
-	}
-	h2{
-	text-align:center;
-	}
-  </style>
+    <title>Diabetes Detection</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+        }
+
+        .carousel-inner img {
+            height: 70vh;
+        }
+
+
+
+        .details h2 {
+
+            position: relative;
+            top: 100px;
+            margin: auto;
+            color: rgb(18, 231, 231);
+            font-size: 3rem;
+        }
+
+        label:hover {
+            transform: scale(1.03);
+        }
+
+        .details h2 {
+            /* margin-bottom: 300px; */
+            position: relative;
+            top: 100px;
+            margin: auto;
+            color: rgb(18, 231, 231);
+            font-size: 3rem;
+
+        }
+
+        .gallery-h1 h1 {
+
+            background-color: rgb(44, 43, 43);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+
+        .details h1 {
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: rgb(45, 47, 49);
+        }
+
+        #electrical {
+
+            font-size: 20px;
+            background-color: rgb(255, 252, 252);
+            border-radius: 20px;
+            outline: none;
+            width: 315px;
+            color: rgb(0, 0, 0);
+            border: 3px solid rgb(45, 47, 49);
+
+        }
+
+
+        #tech {
+
+            margin-top: 50px;
+			margin:auto;
+            padding: 15px 35px;
+            background-color: rgba(0,0,255,0.3);
+            border-radius: 10px;
+            color: black;
+            font-size: 1.0rem;
+            border: 4px solid black;
+			 justify-content: center;
+            align-items: center;
+			text-align: center;
+			display: flex;
+        }
+
+        .carousel-caption {
+            background: rgba(24, 25, 26, 0.5);
+            border-radius: 10px;
+        }
+
+        .carousel-caption h3 {
+
+
+            font-family: 'Rowdies', cursive;
+            color: rgb(0,0,255);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+
+        }
+
+        .carousel-caption p {
+            padding: 7px;
+
+        }
+
+        .img-thumbnail {
+            height: 300px;
+        }
+
+        .Content-h5 {
+
+            padding: 15px;
+            background-color: rgb(153, 156, 150);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        @media only screen and (max-width: 325px) {
+            body {
+                font-size: x-small;
+            }
+        }
+    </style>
+
 
 </head>
 
 <body>
 
- 
- 
- <div class="login">
-	
-    <!-- Get input for predict the  heart disease -->
-    <center>
-         <br>
-            <br>
-               <br>
-                  <br>
-    <form action="{{ url_for('predict')}}" method="post">
-          <br>
-            <br>
-              <br>
-                <br>
-                  <br>
-                    
+    <header>
+	<div class="container-fluid">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="4" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="5" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="6" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="7" class=""></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active ">
+                        <img src="static\images\img1.jpg" class="d-block w-100" alt="...">
 
-        <h1>>>>Enter the value of Your Body Features >>></h1>
-        
-    	<input type="text" name="age" placeholder="Your Age(Years)" required="required" />
-        <input type="text" name="bmi" placeholder="Your BMI" required="required" />
-		<input type="text" name="diab_pred" placeholder="Diabetes pedigree function" required="required" />
-        <input type="text" name="insulin" placeholder="Serum Insulin" required="required" />
-         <input type="text" name="diastolic_bp" placeholder="Your Blood Pressure" required="required" />
+                        <div class="container">
+                            <div class="container background-img3">
+                                <div class="carousel-caption">
+
+                                    <h3>What is Diaabetes?</h3>
+                                    <p>
+ Diabetes is a chronic (long-lasting) health condition that affects how your body turns food into energy. Most of the food you eat is broken down into sugar (also called glucose) and released into your bloodstream. When your blood sugar goes up, it signals your pancreas to release insulin.
+ </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="static\images\img2.jpg" class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h3>
+What is the main cause of diabetes?
+
+                                </h3>
+                                <p>
+
+
+
+ Type 1 diabetes occurs when your immune system, the body's system for fighting infection, attacks and destroys the insulin-producing beta cells of the pancreas. Scientists think type 1 diabetes is caused by genes and environmental factors, such as viruses, that might trigger the disease.			   
+					   
+					   </p>
+
+                            </div>
+                        </div>
+                    </div>
+  <div class="carousel-item">
+                        <img src="static\images\img3.jpg" class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h3>
+
+
+How does diabetes make you feel?
+
+                                </h3>
+                                <p>
+
+
+Type 2 diabetes is a common condition that causes high blood sugar levels. Early signs and symptoms can include frequent urination, increased thirst, feeling tired and hungry, vision problems, slow wound healing, and yeast infections
+
+</p>
+
+                            </div>
+                        </div>
+                    </div>
+                 <div class="carousel-item">
+                        <img src="static\images\img4.jpg" class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h3>What is the best treatment for diabetes?
+                                </h3>
+                                <p>
+
+
+Metformin is generally the preferred initial medication for treating type 2 diabetes, unless there's a specific reason not to use it. Metformin is effective, safe, and inexpensive. It may reduce the risk of cardiovascular events. Metformin also has beneficial effects when it comes to reducing A1C results.
+
+			</p>
+
+                            </div>
+                        </div>
+                    </div>
+					<div class="carousel-item">
+                        <img src="static\images\img5.jpg" class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h3>
+
+Can walking cure diabetes?
+                                </h3>
+                                <p>
+
+Research studies have shown that walking can be beneficial in bringing down blood glucose and therefore improving diabetes control. In a study involving people with type 1 diabetes, participants were assigned to either take a 30 minute walk after eating or have the same meal but remain inactive.
+
+
+
+	
+	</p>
+
+                            </div>
+                        </div>
+                    </div>
+					<div class="carousel-item">
+                        <img src="static\images\img6.jpg" class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h3>
+Can diabetes cure without medicine?
+
+                                </h3>
+                                <p>
+
+
+
+
+Although there's no cure for type 2 diabetes, studies show it's possible for some people to reverse it. Through diet changes and weight loss, you may be able to reach and hold normal blood sugar levels without medication	
+	</p>
+
+                            </div>
+                        </div>
+                    </div>
+					<div class="carousel-item">
+                        <img src="static\images\img7.jpg" class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h3>
+
+
+How can I naturally beat diabetes?
+
+							   </h3>
+                                <p>
+
+
+A healthy diet for people with type 2 diabetes includes fresh fruits and vegetables, whole grains, beans, lean meats, and low-fat dairy. Focus on eating fruits and non-starchy vegetables, like broccoli, carrots, and lettuce, and having smaller portions of starchy foods, meat, and dairy products.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="static\images\img8.jpg" class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="container ">
+                                <div class="carousel-caption">
+                                    <h3>What happens if you ignore diabetes?
+                                     </h3>
+<p>
+
+
+If type 2 diabetes goes untreated, the high blood sugar can affect various cells and organs in the body. Complications include kidney damage, often leading to dialysis, eye damage, which could result in blindness, or an increased risk for heart disease or stroke.
+</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev" >
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </header>
+	<div>
+                    <h5 style="padding: 15px; background-color: rgb(0, 0, 255); color: white;"
+                        class="text-center mb-5 content-h1 rounded">
+Diabetes Detection & Awareness</h5>
+                </div>
+	<marquee direction="right" scrollamount="15" style="background-color: rgba(0, 0, 255,0.7);">
+<img src="static\images\img9.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img10.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img11.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img12.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img13.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img14.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img15.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img16.jpg" style="width:350px; height:200px;" >
+</marquee>
+				<div>
+                    <p style="padding: 15px; background-color: rgba(0, 0, 255,0.8); color: white;"
+                        class=" mb-5 content-h1 rounded">
+<b style="text-align:center;">>>>>>Diaabetes and its Awerness>>>>></b><br>
+<span>
+Diabetes is a disease that occurs when your blood glucose, also called blood sugar, is too high. Blood glucose is your main source of energy and comes from the food you eat. Insulin, a hormone made by the pancreas, helps glucose from food get into your cells to be used for energy. Sometimes your body doesn’t make enough—or any—insulin or doesn’t use insulin well. Glucose then stays in your blood and doesn’t reach your cells.<br>
+
+Over time, having too much glucose in your blood can cause health problems. Although diabetes has no cure, you can take steps to manage your diabetes and stay healthy.<br>
+
+Sometimes people call diabetes “a touch of sugar” or “borderline diabetes.” These terms suggest that someone doesn’t really have diabetes or has a less serious case, but every case of diabetes is serious.<br>
+<b>Why is awareness about diabetes important?</b><br>
+
+November is National Diabetes Month, a time when communities across the country team up to bring attention to diabetes.</br>
+
+Across the globe, approximately 463 million adults are living with diabetes. Since prediabetes and type 2 diabetes may be prevented or delayed, raising diabetes awareness can educate people on possible symptoms and ways to reduce their individual risk.
+</span>
+<span class="text-center">
+<marquee direction="right" scrollamount="20" style="background-color: rgba(0, 0, 255,0.7);">
+<img src="static\images\img17.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img18.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img19.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img20.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img21.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img22.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img23.jpg" style="width:350px; height:200px;" >
+<img src="static\images\img24.jpg" style="width:350px; height:200px;" >
+</marquee>
+</span><br>
+<span>
+<b style="text-align:center;">>>>>>Risk factors for Diaabetes>>>>></b><br>
+Risk factors for diabetes depend on the type of diabetes.<br>
+
+<b>Risk factors for type 1 diabetes:</b><br>
+Although the exact cause of type 1 diabetes is unknown, factors that may signal an increased risk include:<br>
+
+<b>Family history:</b> Your risk increases if a parent or sibling has type 1 diabetes.<br>
+<b>Environmental factors:</b> Circumstances such as exposure to a viral illness likely play some role in type 1 diabetes.<br>
+<b>The presence of damaging immune system cells (autoantibodies):</b> Sometimes family members of people with type 1 diabetes are tested for the presence of diabetes autoantibodies. If you have these autoantibodies, you have an increased risk of developing type 1 diabetes. But not everyone who has these autoantibodies develops diabetes.<br>
+<b>Geography:</b> Certain countries, such as Finland and Sweden, have higher rates of type 1 diabetes.<br>
+<b>Risk factors for prediabetes and type 2 diabetes:</b><br>
+Researchers don't fully understand why some people develop prediabetes and type 2 diabetes and others don't. It's clear that certain factors increase the risk, however, including:<br>
+
+<b>Weight:</b> The more fatty tissue you have, the more resistant your cells become to insulin.<br>
+<b>Inactivity:</b> The less active you are, the greater your risk. Physical activity helps you control your weight, uses up glucose as energy and makes your cells more sensitive to insulin.<br>
+<b>Family history:</b> Your risk increases if a parent or sibling has type 2 diabetes.<br>
+<b>Race or ethnicity:</b>Although it's unclear why, certain people — including Black, Hispanic, American Indian and Asian American people — are at higher risk.<br>
+<b>Age:</b> Your risk increases as you get older. This may be because you tend to exercise less, lose muscle mass and gain weight as you age. But type 2 diabetes is also increasing among children, adolescents and younger adults.<br>
+<b>Gestational diabetes:</b> If you developed gestational diabetes when you were pregnant, your risk of developing prediabetes and type 2 diabetes increases. If you gave birth to a baby weighing more than 9 pounds (4 kilograms), you're also at risk of type 2 diabetes.<br>
+<b>Polycystic ovary syndrome:</b> For women, having polycystic ovary syndrome — a common condition characterized by irregular menstrual periods, excess hair growth and obesity — increases the risk of diabetes.<br>
+<b>High blood pressure:</b>Having blood pressure over 140/90 millimeters of mercury (mm Hg) is linked to an increased risk of type 2 diabetes.<br>
+<b>Abnormal cholesterol and triglyceride levels:</b> If you have low levels of high-density lipoprotein (HDL), or "good," cholesterol, your risk of type 2 diabetes is higher. Triglycerides are another type of fat carried in the blood. People with high levels of triglycerides have an increased risk of type 2 diabetes. Your doctor can let you know what your cholesterol and triglyceride levels are.<br>
+<b>Risk factors for gestational diabetes:</b><br>
+<b>Pregnant women can develop gestational diabetes:</b> Some women are at greater risk than are others. Risk factors for gestational diabetes include:<br>
+
+<b>Age:</b>Women older than age 25 are at increased risk.<br>
+<b>Family or personal history:</b> Your risk increases if you have prediabetes — a precursor to type 2 diabetes — or if a close family member, such as a parent or sibling, has type 2 diabetes. You're also at greater risk if you had gestational diabetes during a previous pregnancy, if you delivered a very large baby or if you had an unexplained stillbirth.<br>
+<b>Weight:</b> Being overweight before pregnancy increases your risk.<br>
+<b>Race or ethnicity:</b> For reasons that aren't clear, women who are Black, Hispanic, American Indian or Asian American are more likely to dev<br>
+</span>
+</p>
+<div class="container">
+<span>
+     <h5 style="padding: 15px; background-color: rgb(0, 0, 255); color: white;"
+                        class="text-center mb-5 content-h1 rounded">
+Details about All Parameters of the dataset And its Range as per pathology </h5>
+<table border="4" height="300px" width="450px" style="text-align:center;border-color:black;border-style:dotted; background-color:rgba(0,0,255,0.3);">
+<thead >
+<tr><td><b>About all Information for dataset</b></td><td><b>Range</b></td></tr>
+</thead>
+<tbody>
+<tr><td> Age</td><td>Enter Your Age in Years</td></tr>
+<tr><td>BMI</td><td>Enter Your Body Mass Index (weight in kg/(height in m)^2)[Input Value:-(withinin 10 to 90)]</td></tr>
+<tr><td>Diabetic in Family history</td><td>A Function Which Scores likelihood of diabetes based on family history[Input Value:-(0 if non diabetic,1 if diabetic)]</td></tr>
+<tr><td>Serum Insulin</td><td>2-Hour after Glucose Administration(mlU/L)[Normal Range:-(16-166miU/L)]</td></tr>
+<tr><td>Blood Pressure</td><td>Enter Your Blood Pressure in mm/Hg[Normal Range:80-120 mm/Hg]</td></tr>
+<tr><td>Glucose Concentration</td><td>Plasma glucose concentration a 2 hours in an oral glucose tolerance test [Normal Range:-Less than 140mg/dl]</td></tr>
+<tr><td>Triceps Skin Thickness</td><td>Triceps skin fold thickness (mm)[INormal Range:-12mm(male),23mm(female)]</td></tr>
+<tr><td>Number of  Pregnency</td><td>If the Person is woman,Then Enter the Number of time the woman is pregnant</td></tr>
+
+</tbody>
+
+</table>
+
+
+</span>
+</div>
+                </div>	
+				 <h2 class="text-center mt-4 mb-4" style="font-size: 1.0rem;"><b>
+			>>>Please Enter Your Some Information as per Pathological Report for predicting Diaabetes>>>
+</b></h2>
+<div class="container">
+            <form action="{{ url_for('predict')}}" method="POST" action="/">
+<input type="text" name="age" placeholder="Your Age(Years)" style="border:2px black solid; " required="required" />
+        <input type="text" name="bmi" placeholder="Your BMI" style="border:2px black solid; " required="required" />
+		<input type="text" name="diab_pred" placeholder="Diabetic in Family history" style="border:2px black solid; " required="required" />
+        <input type="text" name="insulin" placeholder="Serum Insulin" style="border:2px black solid; " required="required" />
+         <input type="text" name="diastolic_bp" placeholder="Your Blood Pressure" style="border:2px black solid; " required="required" />
+		 <input type="text" name="glucose_conc" placeholder="Gulucose Concentration" style="border:2px black solid; " required="required" />
 		 <br>
 		 
-		 <input type="text" name="glucose_conc" placeholder="Gulucose Concentration" required="required" />
-		 <input type="text" name="skin" placeholder="Triceps Skin Thickness" required="required" />
-		 <input type="text" name="num_preg" placeholder="Number of time Pregnant" required="required" />
+		 
+		 <input type="text" name="skin" placeholder="Triceps Skin Thickness" style="border:2px black solid;" required="required" />
+		 <input type="text" name="num_preg" placeholder="Number of  Pregnency" style="border:2px black solid;" required="required" />
 		<br>
-        <br>
-         <br>
-		
-        
-        <!-- Show button -->
-        <div class="button_cont" align="center"><a class="button_css" href="https://github.com/projectprogrammer057" target="_blank" rel="nofollow noopener">
-            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict Diabetes</strong></button></a>
-        </div>
-        
-    </form>
-    </center>
-   
-   <!-- Show predicted output using ML model --> 
-   <div>
+		<br>
+                <button  id="tech">Predict  Disorder</button>
+
+            </form>
+
+		<div>
        <center>
-   <h1>{{ prediction_text }}</h1>
+   <h4 style="color:blue;">{{ prediction_text }}</h4>
        </center>
    </div>
 
  </div>
  <br>
+ <section>
+
+        <div class="container">
+            <h5 style="padding: 15px; background-color: rgb(0, 0, 255); color: white;"
+                class="text-center my-3 content-h1">
+                ABOUT SOME TYPES  OF DIABETES</h5>
+        </div>
+
+
+
+            <div class="col-sm">
+
+
+                <div class="details">
  <p>
- <h2>All About The Input Data</h2><br>
- <b class="mimi">
-<span> Age</span>:-Enter Your Age in Years <br>
- <span>BMI</span>:-Enter Your Body Mass Index (weight in kg/(height in m)^2)[Input Value:-(withinin 10 to 90)] <br>
- <span>Diabetes Pedigree Function</span>:-A Function Which Scores likelihood of diabetes based on family history[Input Value:-(0 if non diabetic,1 if diabetic)] <br>
- <span>Serum Insulin</span>:-2-Hour after Glucose Administration(mlU/L)[Normal Range:-(16-166miU/L)]<br>
- <span>Blood Pressure</span>:-Enter Your Blood Pressure in mm/Hg[Normal Range:-120 mm/Hg]<br>
- <span>Glucose Concentration</span>:Plasma glucose concentration a 2 hours in an oral glucose tolerance test [Normal Range:-Less than 140mg/dl]<br>
- <span>Triceps Skin Thickness</span>:-Triceps skin fold thickness (mm)[INormal Range:-12mm(male),23mm(female)]<br>
- <span>Number of time Pregnant</span>:If the Person is woman,Then Enter the Number of time the woman is pregnant<br>
- </b>
+
+Diabetes is a chronic (long-lasting) health condition that affects how your body turns food into energy. Most of the food you eat is broken down into sugar (also called glucose) and released into your bloodstream. When your blood sugar goes up, it signals your pancreas to release insulin.A group of diseases that result in too much sugar in the blood (high blood glucose):<br>
+ </p></br></br>
+						<h5 style="text-align:center; color:blue;">Type 1 diabetes</h5>
+		 <h5 style="color:blue;"><u>1.Overview</u></h5><br>
+<p>
+A chronic condition in which the pancreas produces little or no insulin.<br>
+It typically appears in adolescence.<br>
+Symptoms include increased thirst, frequent urination, hunger, fatigue and blurred vision.<br>
+Treatment aims at maintaining normal blood sugar levels through regular monitoring, insulin therapy, diet and exercise.<br>
 </p>
-</body>
-</html>
+
+		 <h5 style="color:blue;"><u>2.Symptoms</u></h5><br>
+<p>
+<b>Requires a medical diagnosis:</b><br>
+Symptoms include increased thirst, frequent urination, hunger, fatigue and blurred vision.<br>
+<b>People may experience:</b><br>
+<b>Whole body:</b> excessive thirst, fatigue, hunger, or sweating</br>
+<b>Gastrointestinal:</b> nausea or vomiting</br>
+<b>Urinary:</b> bed wetting or excessive urination<br>
+<b>Also common: </b>blurred vision, fast heart rate, frequent infections, headache, sleepiness, or weight loss<br>
+</p>
+<div class="text-center rounded-circle">
+<img src="static\images\img25.jpg" style="width:350px; height:200px;" >
+</div>
+<br>
+
+		 <h5 style="color:blue;"><u>3.Treatments</u></h5><br>
+<p>
+<b>Treatment consists of insulin:</b><br>
+Treatment aims at maintaining normal blood sugar levels through regular monitoring, insulin therapy, diet and exercise.<br>
+<b>Self-care:</b><br>
+Diabetic diet, Nutrition counseling, Carbohydrate counting and Physical exercise<br>
+<b>Medications:</b><br>
+Insulin, Dietary supplement and Hormone<br>
+
+</p>
+
+
+<br>
+<h5 style="text-align:center; color:blue;">Type 2 diabetes</h5>
+		 <h5 style="color:blue;"><u>1.Overview</u></h5><br>
+<p>
+A chronic condition that affects the way the body processes blood sugar (glucose).<br>
+With type 2 diabetes, the body either doesn't produce enough insulin, or it resists insulin.<br>
+Symptoms include increased thirst, frequent urination, hunger, fatigue and blurred vision. In some cases, there may be no symptoms.<br>
+Treatments include diet, exercise, medication and insulin therapy.<br>
+
+</p>
+
+		 <h5 style="color:blue;"><u>2.Symptoms</u></h5><br>
+<p>
+<b>Requires a medical diagnosis:</b><br>
+Symptoms include increased thirst, frequent urination, hunger, fatigue and blurred vision. In some cases, there may be no symptoms.<br>
+<b>People may experience:</b><br>
+<b>Whole body: </b>excessive hunger, excessive thirst, or fatigue</br>
+<b>Weight: </b>weight gain or weight loss<br>
+<b>Also common:</b> frequent urination, blurred vision, or poor wound healing</br>
+
+</p>
+<div class="text-center rounded-circle">
+<img src="static\images\img26.jpg" style="width:350px; height:200px;" >
+</div>
+<br>
+
+		 <h5 style="color:blue;"><u>3.Treatments</u></h5><br>
+<b>Treatment consists of self care and antidiabetic medications:</b><br>
+Treatments include diet, exercise, medication and insulin therapy.<br>
+<b>Self-care:</b><br>
+Physical exercise, Quitting smoking, Weight loss, Dietary fiber, Nutrition counseling and Diabetic diet<br>
+<b>Medications:</b><br>
+Anti-diabetic medication, Statin and Insulin<br>
+
+<br>
+<h5 style="text-align:center; color:blue;">Prediabetes</h5>
+		 <h5 style="color:blue;"><u>1.Overview</u></h5><br>
+<p>
+A condition in which blood sugar is high, but not high enough to be type 2 diabetes.<br>
+Without intervention, it's likely to become type 2 diabetes within 10 years.<br>
+Many people with prediabetes have no symptoms.<br>
+Progression from prediabetes to type 2 diabetes isn't inevitable. With lifestyle changes, weight loss and medication, it's possible to bring a blood sugar level back to normal.<br>
+</p>
+
+		 <h5 style="color:blue;"><u>2.Symptoms</u></h5><br>
+<p>
+<b>Requires a medical diagnosis:</b><br>
+Many people with prediabetes have no symptoms.<br>
+<b>People may experience:</b><br>
+<b>Whole body:</b> excessive hunger, excessive thirst, or fatigue<br>
+<b>Also common: </b>frequent urination or weight gain<br>
+</p>
+<div class="text-center rounded-circle">
+<img src="static\images\img27.jpg" style="width:350px; height:200px;" >
+</div>
+<br>
+
+		 <h5 style="color:blue;"><u>3.Treatments</u></h5><br>
+<p>
+<b>Treatment consists of self care:</b><br>
+Progression from prediabetes to type 2 diabetes isn't inevitable. With lifestyle changes, weight loss and medication, it's possible to bring a blood sugar level back to normal.<br>
+<b>Self-care:</b><br>
+Physical exercise, Weight loss, Low carbohydrate diet, Mediterranean diet, Low fat diet and Diabetic diet<br>
+<b>Medications:</b><br>
+Anti-diabetic medication<br>
+</p>
+
+
+<br>
+<h5 style="text-align:center; color:blue;">Gestational diabetes</h5>
+		 <h5 style="color:blue;"><u>1.Overview</u></h5><br>
+<p>
+A form of high blood sugar affecting pregnant women.<br>
+Those who develop gestational diabetes are at higher risk of developing type 2 diabetes later in life.<br>
+In most cases, there are no symptoms. A blood sugar test during pregnancy is used for diagnosis.<br>
+Treatment strategies include daily blood sugar monitoring, a healthy diet, exercise and monitoring the baby. If blood sugar is too high, medication is required.<br>
+</p>
+
+		 <h5 style="color:blue;"><u>2.Symptoms</u></h5><br>
+<p>
+
+<b>Requires a medical diagnosis:</b><br>
+In most cases, there are no symptoms. A blood sugar test during pregnancy is used for diagnosis.<br>
+<b>Can have no symptoms, but people may experience:</b><br>
+<b>Whole body:</b> excessive hunger, excessive thirst, or fatigue</br>
+<b>Also common:</b> fetal macrosomia, frequent urination, or thrush in men and women<br>
+
+</p>
+<div class="text-center rounded-circle">
+<img src="static\images\img28.jpg" style="width:350px; height:200px;" >
+</div>
+<br>
+
+		 <h5 style="color:blue;"><u>3.Treatments</u></h5><br>
+<p>
+<b>Treatment consists of diet modifications:</b><br>
+Treatment strategies include daily blood sugar monitoring, a healthy diet, exercise and monitoring the baby. If blood sugar is too high, medication is required.<br>
+<b>Self-care:</b><br>
+Healthy diet, Diabetic diet and Physical exercise<br>
+<b>Medications:</b><br>
+Anti-diabetic medication and Insulin<br>
+</p>
+
+
+
+<br>
+<h5 style="text-align:center; color:blue;">Can diabetes be cured permanently?</h5>
+
+
+
+<p>
+There is no known cure for type 2 diabetes. But it can be controlled. And in some cases, it goes into remission. For some people, a diabetes-healthy lifestyle is enough to control their blood sugar levels.<br>
+
+Type 1 diabetes is a metabolic disorder in which the pancreas produces little to no insulin, leading to increased blood sugar levels (hyperglycemia). Because type 1 diabetes is an autoimmune disease, there is no cure and it must be managed for the rest of a person's life.<br>
+Despite its huge impact, there is still no cure for any type of diabetes. Most treatments help patients manage the symptoms to a certain extent, but diabetics still face multiple long-term health complications.
+</p>
+
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="col-sm">
+
+                <div>
+                    <h5 style="padding: 15px; background-color: rgb(0, 0, 255); color: white;"
+                        class="text-center mb-5 content-h1 rounded">
+                    DIABETES PREVENTION AND AWERNESS</h5>
+                </div>
+                <div class="details">
+
+      <h5 style="text-align:center; color:blue;">Is diabetes a lifelong disease?</h5>
+	  <p>
+	
+
+Diabetes is a lifelong condition that causes a person's blood sugar level to become too high. There are 2 main types of diabetes: type 1 diabetes – where the body's immune system attacks and destroys the cells that produce insulin. 
+	 </p>
+
+                  <h5 style="text-align:center; color:blue;">What can I do to lower my risk of diabetes?</h5>
+				  <p>
+<b>1.Lose extra weight. Losing weight reduces the risk of diabetes.</b><br>
+<b>2.Be more physically active. There are many benefits to regular physical activity.</b><br>
+<b>3.Eat healthy plant foods. Plants provide vitamins, minerals and carbohydrates in your diet.</b><br>
+<b>4.Eat healthy fats.</b><br>
+<b>5.Skip fad diets and make healthier choices.</b><br>
+				  
+				  </p>
+
+
+<div class="text-center rounded-circle">
+<img src="static\images\img29.jpg" style="width:350px; height:200px;" >
+</div>
+<br>
+
+ <h5 style="text-align:center; color:blue;">Foods for Diabetic</h5>
+
+<p>
+Some foods to keep diabetes control:-<br>
+<b>1.Fatty Fish. Some people consider fatty fish to be one of the healthiest foods on the planet.</b><br>
+<b>2.Leafy Greens. Leafy green vegetables are extremely nutritious and low in calories.</b><br>
+<b>3.Avocados.</b></br>
+<b>4.Eggs.</b></br>
+<b>5.Chia Seeds.</b></br>
+<b>6.Beans.</b></br>
+<b>7.Greek Yogurt.</b><br>
+<b>8.Nuts.</b></br>
+
+</p>
+<div class="text-center rounded-circle">
+<img src="static\images\img30.jpg" style="width:350px; height:200px;">
+</div>
+
+
+<br>
+ <h5 style="text-align:center; color:blue;">Why is Diaabetes important to public health?</h5>
+
+
+
+<br>
+
+
+<p>
+
+
+Diabetes, the main component of chronic metabolic diseases, not only lowers quality of life and greatly increases medical expenses, but also significantly increases disease-related deaths. Diabetes has become one of the major diseases that result in death.<br>
+
+Diabetes mellitus (DM) is a major public health problem worldwide. Current global estimates indicate that this condition affects 415 million people and is set to escalate to 642 million by the year 2040.<br>
+
+Diabetes imposes a substantial economic burden on society and is one of the costliest chronic diseases, accounting for $245 billion in economic costs in 2012 alone for diagnosed cases, including $176 billion in direct medical costs and $69 billion in reduced productivity.<br>
+
+
+</p>
+
+
+
+   <div>
+                    <h5 style="padding: 15px; background-color: rgb(0, 0, 255); color: white;"
+                        class="text-center mb-5 content-h1 rounded">
+                       KALAM DIABETES DIAGNOSTIC CENTER<br>
+					  Email:kalamsardar2001@gmail.com </h5>
+                </div>
+</div>
+</section>
+
+				<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</body>
+	</html>
